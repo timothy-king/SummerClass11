@@ -16,8 +16,8 @@ void bubble_sort(data_arr source, uint32_t* order, uint32_t n){
 
     for(i=1; i<n; i++){
       if(cmp_wrt_order(source, order, i-1, i) > 0){
-	swap(order, i-1, i);
-	swapped_in_this_round = true;
+        swap(order, i-1, i);
+        swapped_in_this_round = true;
       }
     }
   }while(swapped_in_this_round);
@@ -30,9 +30,9 @@ void _insertion_sort(data_arr source, uint32_t* order, uint32_t l, uint32_t r){
   for(i=l+1; i<=r; i++){
     for(j=i; j>l; j--){
       if(cmp_wrt_order(source, order, j-1, j) > 0){
-	swap(order, j-1, j);
+        swap(order, j-1, j);
       }else{
-	break;
+        break;
       }
     }
   }
@@ -102,7 +102,7 @@ double time_sort(sort_func f, data_arr source, uint32_t n, bool* res){
   return cputime;
 }
 
-double* time_sorts(sort_func* f, uint32_t k, data_arr source, uint32_t n, bool* res, double* times){
+void time_sorts(sort_func* f, uint32_t k, data_arr source, uint32_t n, bool* res, double* times){
   uint32_t i;
   bool localres;
 
