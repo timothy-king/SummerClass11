@@ -6,6 +6,8 @@
 
 #define RANDOM_BITS 120
 
+/*  (See documentation in the header file data.h.)
+ */
 void init_data(data_t x){
   mpf_init(x);
 }

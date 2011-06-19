@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include "utils.h"
 
+/* (See documentation in the header file utils.h.)
+ */
 uint32_t rand_range(gmp_randstate_t state, uint32_t min, uint32_t max){
   assert(min < max, "range_range requires min < max");
 

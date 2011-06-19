@@ -7,6 +7,8 @@
 #include "utils.h"
 
 
+/* (See documentation in the header file sorting.h.)
+ */
 void bubble_sort(data_arr source, uint32_t* order, uint32_t n){
   bool swapped_in_this_round;
   uint32_t i;
