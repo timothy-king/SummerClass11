@@ -1,10 +1,13 @@
 #include <gmp.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <limits.h>
+#include "assert.h"
 #include "utils.h"
 
 uint32_t rand_range(gmp_randstate_t state, uint32_t min, uint32_t max){
-  assert(min < max, "range_range requires min < max");
+  assert(min <= max, "rand_range requires min <= max");
+  assert( ! (max - min < UINT32_MAX), "rand_range requires that max - min < UINT32_MAX.");
 
   mpz_t tmp;
   mpz_init(tmp);
@@ -12,7 +15,7 @@ uint32_t rand_range(gmp_randstate_t state, uint32_t min, uint32_t max){
   mpz_urandomb(tmp, state, 32);
 
   uint32_t random = mpz_get_ui(tmp);
-  random = ((random) % (max - min)) + min;
+  random = ((random) % (max - min + 1)) + min;
 
   return random;
 }
@@ -106,7 +109,7 @@ uint32_t local_stable_inversion(data_arr source, uint32_t* order, uint32_t n){
   uint32_t i, ord;
   for(i = 1; i < n; ++i){
     ord = cmp_wrt_order(source, order, i-1, i); 
-    if( ord < 0 || (ord ==0) && order[i-1] >= order[i]){
+    if( ord < 0 || ((ord ==0) && order[i-1] >= order[i])){
       return i;
     }
   }
