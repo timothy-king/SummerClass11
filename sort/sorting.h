@@ -22,6 +22,7 @@ typedef void (*sort_func)(data_arr source, uint32_t* perm, uint32_t n);
  * Stores whether the sort was correctly stably sorted in res.
  */
 double time_sort(sort_func f, data_arr source, uint32_t n, bool* res);
+<<<<<<< HEAD
 
 /*
  * Times a sort_func f and sorts a copy of the data_arr source of length n.
@@ -29,6 +30,9 @@ double time_sort(sort_func f, data_arr source, uint32_t n, bool* res);
  * Sorts whether the sort was correctly stably sort in res.
  */
 double* time_sorts(sort_func* f, uint32_t k, data_arr source, uint32_t n, bool* res, double* times);
+=======
+void time_sorts(sort_func* f, uint32_t k, data_arr source, uint32_t n, bool* res, double* times);
+>>>>>>> 6fa4c185514fee1df20228d3b8021cfa2f5febef
 
 /*
  * bubble_sort is an instance of sort_func implementing a bubble sort.

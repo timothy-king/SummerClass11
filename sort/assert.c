@@ -4,7 +4,8 @@
 
 /*  (See documentation in the header file assert.h.)
  */
-void assert(bool cnd, char* msg){
+void assert(bool cnd, const char* msg){
+
   if(!cnd){
 
     fprintf(stderr, "An error occurred: %s", msg);

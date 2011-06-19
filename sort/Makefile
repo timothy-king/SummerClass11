@@ -1,4 +1,4 @@
-CFLAGS=-I/opt/local/include/ -g
+CFLAGS=-I/opt/local/include/ -g -Wall
 LDFLAGS=-lgmp -L/opt/local/lib
 
 all: main
