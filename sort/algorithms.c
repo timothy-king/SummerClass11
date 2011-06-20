@@ -1,4 +1,4 @@
-#include "sorting.h"
+#include "algorithms.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -95,20 +95,11 @@ double time_sort(sort_func f, data_arr source, uint32_t n, bool* res){
     *res = check_stable_sortedness(source, order, n) ; 
   }
 
-  //print_array_wrt_ord(source, order, n);
+#ifdef DEBUG
+  print_array_wrt_ord(source, order, n);
+#endif
 
   delete_array(copy, n);
   free (order);
   return cputime;
-}
-
-void time_sorts(sort_func* f, uint32_t k, data_arr source, uint32_t n, bool* res, double* times){
-  uint32_t i;
-  bool localres;
-
-  *res = true;
-  for(i=0; i<k; i++){
-    times[i] = time_sort(f[i], source, n, &localres);
-    *res &= localres;
-  }
 }

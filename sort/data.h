@@ -1,4 +1,6 @@
+#include <stdio.h>
 #include <gmp.h>
+
 
 #ifndef SORTING__DATA_H
 #define SORTING__DATA_H

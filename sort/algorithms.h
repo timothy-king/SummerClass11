@@ -4,8 +4,8 @@
 #include "data.h"
 
 
-#ifndef SORTING__SORTING_H
-#define SORTING__SORTING_H
+#ifndef SORTING__ALGORITHMS_H
+#define SORTING__ALGORITHMS_H
 
 /* Defines a type of sorting function.
  * The original array is stored in source of length n.  
@@ -22,14 +22,6 @@ typedef void (*sort_func)(data_arr source, uint32_t* perm, uint32_t n);
  * Stores whether the sort was correctly stably sorted in res.
  */
 double time_sort(sort_func f, data_arr source, uint32_t n, bool* res);
-
-/*
- * Times a sort_func f and sorts a copy of the data_arr source of length n.
- * Returns a double containing the running time.
- * Sorts whether the sort was correctly stably sort in res.
- */
-void time_sorts(sort_func* f, uint32_t k, data_arr source, uint32_t n, bool* res, double* times);
-
 
 
 /*
@@ -51,4 +43,4 @@ void insertion_sort(data_arr source, uint32_t* order, uint32_t n);
 void quick_sort(data_arr source, uint32_t* order, uint32_t n);
 
 
-#endif /* SORTING__SORTING_H */
+#endif /* SORTING__ALGORITHMS_H */

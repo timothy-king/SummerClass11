@@ -1,7 +1,5 @@
-#include "sorting.h"
-#include <stdio.h>
+#include "data.h"
 #include <stdlib.h>
-#include <time.h>
 
 
 #define RANDOM_BITS 120

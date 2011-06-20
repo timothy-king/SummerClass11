@@ -6,7 +6,7 @@
 #include "assert.h"
 #include "data.h"
 #include "utils.h"
-#include "sorting.h"
+#include "algorithms.h"
 
 #define K 3
 const char* sort_names[] = {"bubble", "quick", "insertion"};
