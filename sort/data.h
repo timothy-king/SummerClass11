@@ -42,6 +42,12 @@ int cmp_data(data_t a, data_t b);
  */
 void print_data(data_t x);
 
+/* Prints the value of x to stream.
+ *
+ * precondition: x must have been been intialized
+ */
+void fprint_data(FILE* stream, data_t x);
+
 /* Assigns a to random value using a pseudo-random number generaton.
  * (See documentation for GMP for gmp_randstate_t.)
  */

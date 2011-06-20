@@ -29,5 +29,9 @@ void generate_random(data_t a, gmp_randstate_t state){
 }
 
 void print_data(data_t x){
-  gmp_printf("%.Ff", x);
+  fprint_data(stdout, x);
+}
+
+void fprint_data(FILE* stream, data_t x){
+  gmp_fprintf(stream, "%.Ff", x);
 }

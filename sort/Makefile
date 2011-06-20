@@ -1,11 +1,11 @@
 CFLAGS=-I/opt/local/include/ -g -Wall
 LDFLAGS=-lgmp -L/opt/local/lib
 
-all: main
+all: sort generate
 
 clean:
 	-rm *.o
-	-rm st
+	-rm sort
 
 assert.o : assert.h assert.c
 	gcc ${CFLAGS} -c assert.c
@@ -19,5 +19,8 @@ utils.o : utils.h utils.c assert.h data.h
 sorting.o: assert.o data.o utils.o sorting.c sorting.h
 	gcc ${CFLAGS} -c sorting.c
 
-main: assert.o data.o utils.o sorting.o
-	gcc ${CFLAGS} ${LDFLAGS} main.c -o st data.o assert.o utils.o sorting.o
+sort: sort.c assert.o data.o utils.o sorting.o
+	gcc ${CFLAGS} ${LDFLAGS} sort.c -o sort data.o assert.o utils.o sorting.o
+
+generate: generate.c assert.o data.o utils.o sorting.o
+	gcc ${CFLAGS} ${LDFLAGS} generate.c -o generate data.o assert.o utils.o sorting.o

@@ -22,6 +22,10 @@ uint32_t* make_range(uint32_t n);
  */
 void print_array(data_arr arr, uint32_t n);
 
+/* Prints the first n values of arr to stream.
+ */
+void fprint_array(FILE * stream, data_arr arr, uint32_t n);
+
 /* Prints the first n values of arr with respect to order.
  */
 void print_array_wrt_ord(data_arr arr, uint32_t* order, uint32_t n);

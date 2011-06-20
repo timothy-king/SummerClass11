@@ -95,9 +95,7 @@ double time_sort(sort_func f, data_arr source, uint32_t n, bool* res){
     *res = check_stable_sortedness(source, order, n) ; 
   }
 
-  print_array(source, n);
-  print_array(copy, n);
-  print_array_wrt_ord(source, order, n);
+  //print_array_wrt_ord(source, order, n);
 
   delete_array(copy, n);
   free (order);

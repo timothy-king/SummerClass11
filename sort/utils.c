@@ -9,7 +9,7 @@
  */
 uint32_t rand_range(gmp_randstate_t state, uint32_t min, uint32_t max){
   assert(min <= max, "rand_range requires min <= max");
-  assert( ! (max - min < UINT32_MAX), "rand_range requires that max - min < UINT32_MAX.");
+  assert(max - min < UINT32_MAX, "rand_range requires that max - min < UINT32_MAX.");
 
   mpz_t tmp;
   mpz_init(tmp);
@@ -18,6 +18,8 @@ uint32_t rand_range(gmp_randstate_t state, uint32_t min, uint32_t max){
 
   uint32_t random = mpz_get_ui(tmp);
   random = ((random) % (max - min + 1)) + min;
+
+  mpz_clear(tmp);
 
   return random;
 }
@@ -33,16 +35,15 @@ uint32_t* make_range(uint32_t n){
 }
 
 void print_array(data_arr arr, uint32_t n){
-  printf("[");
-  if(n >=1){
-    uint32_t i;
-    for(i=0; i+1<n; i++){
-      print_data(arr[i]);
-      printf(",");
-    }
-    print_data(arr[n-1]);
+  fprint_array(stdout, arr, n);
+}
+
+void fprint_array(FILE* stream, data_arr arr, uint32_t n){
+  uint32_t i;
+  for(i=0; i+1<n; i++){
+    fprint_data(stream, arr[i]);
+    fprintf(stream, "\n");
   }
-  printf("]\n");
 }
 
 void print_array_wrt_ord(data_arr arr, uint32_t* order, uint32_t n){
