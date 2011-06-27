@@ -52,13 +52,15 @@ int main(int argc, char *argv[]) {
   sort_func sort;
   double time;
   bool res;
+  const char* name;
 
   parse_input(argc, argv, &sort_num, &n, &source);
   sort = sorts[sort_num];
 
+  name = sort_names[sort_num];
   time = time_sort(sort, source, n, &res);
   
-  printf("Sort %s is in order %u with time %f.\n", sort_names[sort_num], res, time);
+  printf("Sort %s is in order %u with time %f.\n", name, res, time);
 
   delete_array(source, n);
   return 0;
