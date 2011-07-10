@@ -7,10 +7,11 @@
 #include "data.h"
 #include "utils.h"
 #include "algorithms.h"
+#include "merge.h"
 
-#define K 3
-const char* sort_names[] = {"bubble", "quick", "insertion"};
-const sort_func sorts[] = {bubble_sort, quick_sort, insertion_sort};
+#define K 4
+const char* sort_names[] = {"bubble", "quick", "insertion", "merge"};
+const sort_func sorts[] = {bubble_sort, quick_sort, insertion_sort, merge_sort};
 
 const char help_msg[] =
   "The input to sort is\n"

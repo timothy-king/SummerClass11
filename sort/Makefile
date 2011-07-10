@@ -26,8 +26,11 @@ utils.o : utils.h utils.c assert.h data.h
 algorithms.o: assert.h data.h utils.h algorithms.c algorithms.h
 	${CC} ${CFLAGS} -c algorithms.c
 
-sort: sort.c assert.o data.o utils.o algorithms.o
-	${CC} ${CFLAGS} ${LDFLAGS} sort.c data.o assert.o utils.o algorithms.o -o sort
+merge.o: assert.h data.h utils.h  algorithms.h merge.h merge.c
+	${CC} ${CFLAGS} -c merge.c
+
+sort: sort.c assert.o data.o utils.o algorithms.o merge.o
+	${CC} ${CFLAGS} ${LDFLAGS} sort.c data.o assert.o utils.o merge.o algorithms.o -o sort
 
 generate: generate.c assert.o data.o utils.o
 	${CC} ${CFLAGS} ${LDFLAGS} generate.c data.o assert.o utils.o -o generate 
